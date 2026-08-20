@@ -1,0 +1,955 @@
+/* ===========================================================
+   Club Baloncesto Tomelloso — hoja de estilos compartida
+   =========================================================== */
+
+:root {
+  --verde: #0f7a45;
+  --verde-oscuro: #0a5732;
+  --dorado: #dba90c;
+  --dorado-suave: #f3d466;
+  --marron: #3f2809;
+  --crema: #fdf8ec;
+  --gris-texto: #3a3a3a;
+  --gris-claro: #eef1ee;
+  --blanco: #ffffff;
+  --radio: 14px;
+  --sombra: 0 6px 20px rgba(63, 40, 9, 0.12);
+  --fuente-titulos: 'Oswald', 'Arial Narrow', Arial, sans-serif;
+  --fuente-texto: 'Inter', system-ui, -apple-system, Segoe UI, Roboto, sans-serif;
+}
+
+* { box-sizing: border-box; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  margin: 0;
+  font-family: var(--fuente-texto);
+  color: var(--gris-texto);
+  background: var(--crema);
+  line-height: 1.55;
+}
+
+img { max-width: 100%; display: block; }
+
+a { color: inherit; text-decoration: none; }
+
+h1, h2, h3, h4 {
+  font-family: var(--fuente-titulos);
+  color: var(--marron);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  margin: 0 0 0.5em 0;
+}
+
+.contenedor {
+  width: 100%;
+  max-width: 1120px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+/* -------------------- Aviso de contenido pendiente -------------------- */
+.pendiente {
+  display: inline-block;
+  background: #fff3cd;
+  border: 1px dashed #b8860b;
+  color: #6b4e00;
+  font-size: 0.85rem;
+  padding: 4px 10px;
+  border-radius: 8px;
+  font-style: italic;
+}
+
+.aviso-pagina {
+  background: #fff3cd;
+  border-left: 5px solid var(--dorado);
+  color: #6b4e00;
+  padding: 14px 18px;
+  border-radius: 8px;
+  margin-bottom: 30px;
+  font-size: 0.95rem;
+}
+
+.oferta-combo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  background: var(--dorado-suave);
+  border: 1.5px solid var(--dorado);
+  border-radius: 8px;
+  padding: 10px 14px;
+  margin: 14px 0;
+  font-weight: 600;
+  color: var(--marron);
+  cursor: pointer;
+  transition: background 0.15s ease;
+}
+
+.oferta-combo:hover {
+  background: #eecb4a;
+}
+
+.oferta-combo input[type="checkbox"] {
+  width: 19px;
+  height: 19px;
+  flex-shrink: 0;
+  accent-color: var(--verde-oscuro);
+}
+
+.oferta-combo span {
+  flex: 1;
+}
+
+.oferta-combo-precio {
+  color: var(--verde-oscuro);
+  white-space: nowrap;
+  font-size: 1.05rem;
+}
+
+/* -------------------- Cabecera -------------------- */
+.cabecera {
+  background: var(--blanco);
+  box-shadow: 0 2px 10px rgba(0,0,0,0.08);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+.barra-superior {
+  background: var(--marron);
+  color: var(--crema);
+  font-size: 0.82rem;
+  padding: 6px 0;
+}
+
+.barra-superior .contenedor {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+.barra-superior a { opacity: 0.9; }
+.barra-superior a:hover { opacity: 1; text-decoration: underline; }
+
+.redes-mini { display: flex; gap: 14px; align-items: center; }
+.redes-mini a { display: inline-flex; align-items: center; }
+.redes-mini a:hover { text-decoration: none; opacity: 1; }
+.icono-red { display: block; }
+
+.nav-principal {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 14px 0;
+}
+
+.marca {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.marca img {
+  width: 58px;
+  height: 58px;
+  border-radius: 50%;
+  box-shadow: var(--sombra);
+}
+
+.marca .nombre-club {
+  font-family: var(--fuente-titulos);
+  color: var(--verde-oscuro);
+  line-height: 1.1;
+}
+
+.marca .nombre-club strong {
+  display: block;
+  font-size: 1.3rem;
+  color: var(--marron);
+}
+
+.marca .nombre-club span {
+  font-size: 0.8rem;
+  color: var(--verde);
+  letter-spacing: 1px;
+}
+
+.menu-toggle {
+  display: none;
+  background: none;
+  border: none;
+  font-size: 1.8rem;
+  color: var(--marron);
+  cursor: pointer;
+}
+
+.menu {
+  display: flex;
+  gap: 4px;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.menu a {
+  display: block;
+  padding: 10px 14px;
+  font-weight: 600;
+  font-size: 0.92rem;
+  color: var(--marron);
+  border-radius: 8px;
+  transition: background 0.2s, color 0.2s;
+}
+
+.menu a:hover,
+.menu a.activo {
+  background: var(--verde);
+  color: var(--blanco);
+}
+
+.menu a.enlace-externo::after {
+  content: " ↗";
+  font-size: 0.75rem;
+}
+
+.menu a.cta-abonate {
+  background: var(--dorado);
+  color: var(--marron);
+  margin-left: 6px;
+}
+
+.menu a.cta-abonate:hover,
+.menu a.cta-abonate.activo {
+  background: var(--marron);
+  color: var(--dorado);
+}
+
+/* -------------------- Hero -------------------- */
+.hero {
+  background: linear-gradient(135deg, var(--verde-oscuro), var(--verde) 60%, var(--dorado) 140%);
+  color: var(--blanco);
+  padding: 60px 0;
+  text-align: center;
+}
+
+.hero img.escudo-grande {
+  width: 140px;
+  height: 140px;
+  border-radius: 50%;
+  margin: 0 auto 20px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+}
+
+.hero h1 {
+  color: var(--blanco);
+  font-size: 2.4rem;
+  margin-bottom: 10px;
+}
+
+.hero p {
+  font-size: 1.15rem;
+  max-width: 620px;
+  margin: 0 auto 26px;
+  opacity: 0.95;
+}
+
+.botones-hero {
+  display: flex;
+  gap: 14px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.boton {
+  display: inline-block;
+  padding: 12px 26px;
+  border-radius: 30px;
+  font-weight: 700;
+  font-size: 0.95rem;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  transition: transform 0.15s, box-shadow 0.15s;
+}
+
+.boton-primario {
+  background: var(--dorado);
+  color: var(--marron);
+}
+
+.boton-secundario {
+  background: rgba(255,255,255,0.15);
+  color: var(--blanco);
+  border: 2px solid var(--blanco);
+}
+
+.boton:hover { transform: translateY(-2px); box-shadow: 0 8px 18px rgba(0,0,0,0.25); }
+
+/* -------------------- Secciones genéricas -------------------- */
+.seccion { padding: 60px 0; }
+.seccion-alt { background: var(--gris-claro); }
+
+.titulo-seccion {
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+.titulo-seccion h2 {
+  font-size: 2rem;
+  position: relative;
+  display: inline-block;
+  padding-bottom: 14px;
+}
+
+.titulo-seccion h2::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 70px;
+  height: 4px;
+  background: var(--dorado);
+  border-radius: 4px;
+}
+
+.titulo-seccion p { color: #666; max-width: 600px; margin: 0 auto; }
+
+/* -------------------- Tarjetas (grid genérico) -------------------- */
+.rejilla {
+  display: grid;
+  gap: 26px;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+}
+
+.tarjeta {
+  background: var(--blanco);
+  border-radius: var(--radio);
+  box-shadow: var(--sombra);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+.tarjeta .cuerpo { padding: 20px; flex: 1; display: flex; flex-direction: column; }
+
+.tarjeta .imagen-marcador {
+  height: 200px;
+  background: repeating-linear-gradient(45deg, var(--verde), var(--verde) 12px, var(--verde-oscuro) 12px, var(--verde-oscuro) 24px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: rgba(255,255,255,0.85);
+  font-family: var(--fuente-titulos);
+  font-size: 0.9rem;
+  text-align: center;
+  padding: 10px;
+}
+
+.etiqueta {
+  display: inline-block;
+  background: var(--dorado);
+  color: var(--marron);
+  font-size: 0.72rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  padding: 3px 10px;
+  border-radius: 20px;
+  margin-bottom: 10px;
+  align-self: flex-start;
+}
+
+.etiqueta.cronica { background: var(--verde); color: var(--blanco); }
+.etiqueta.previa { background: var(--marron); color: var(--crema); }
+.etiqueta.fichaje { background: var(--dorado); color: var(--marron); }
+.etiqueta.renovacion { background: #2b6cb0; color: var(--blanco); }
+
+.etiqueta-equipo {
+  display: inline-block;
+  font-size: 0.7rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.02em;
+  padding: 3px 10px;
+  border-radius: 20px;
+  margin-bottom: 10px;
+  margin-left: 6px;
+  align-self: flex-start;
+}
+
+.etiqueta-equipo.amarillo { background: var(--dorado); color: var(--marron); }
+.etiqueta-equipo.verde { background: var(--verde-oscuro); color: var(--blanco); }
+.etiqueta-equipo.derbi { background: var(--marron); color: var(--crema); }
+.etiqueta-equipo.senior { background: var(--verde); color: var(--blanco); }
+
+.tarjeta .imagen-real {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  object-position: center;
+  display: block;
+}
+
+.fecha-mini { color: #888; font-size: 0.82rem; margin-bottom: 8px; }
+
+/* -------------------- Próximo partido destacado -------------------- */
+.proximo-partido {
+  background: var(--blanco);
+  border-radius: var(--radio);
+  box-shadow: var(--sombra);
+  padding: 30px;
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  align-items: center;
+  gap: 16px;
+  text-align: center;
+  max-width: 760px;
+  margin: 0 auto;
+}
+
+.proximo-partido .equipo { font-family: var(--fuente-titulos); font-size: 1.1rem; }
+.proximo-partido .vs {
+  font-family: var(--fuente-titulos);
+  font-size: 1.6rem;
+  color: var(--dorado);
+  background: var(--marron);
+  border-radius: 50%;
+  width: 56px;
+  height: 56px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.proximo-partido .marcador-final {
+  font-family: var(--fuente-titulos);
+  font-size: 1.3rem;
+  color: var(--dorado);
+  background: var(--marron);
+  border-radius: 30px;
+  padding: 10px 6px;
+  min-width: 80px;
+  white-space: nowrap;
+}
+
+.detalle-partido {
+  grid-column: 1 / -1;
+  font-size: 0.9rem;
+  color: #666;
+  border-top: 1px dashed #ddd;
+  padding-top: 14px;
+  margin-top: 6px;
+}
+
+/* -------------------- Plantillas (fotos jugadores/as) -------------------- */
+.jugadores-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(96px, 1fr));
+  gap: 16px;
+}
+
+.jugador-card {
+  text-align: center;
+}
+
+.jugador-foto {
+  width: 84px;
+  height: 84px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 3px solid var(--verde);
+  display: block;
+  margin: 0 auto 8px;
+  background: var(--gris-claro);
+}
+
+.jugador-nombre {
+  font-size: 0.82rem;
+  font-weight: 600;
+  line-height: 1.25;
+}
+
+.jugador-rol {
+  font-size: 0.72rem;
+  color: #888;
+  margin-top: 2px;
+}
+
+/* -------------------- Tablas (calendario / resultados) -------------------- */
+.tabla-envoltorio {
+  overflow-x: auto;
+  background: var(--blanco);
+  border-radius: var(--radio);
+  box-shadow: var(--sombra);
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  min-width: 640px;
+}
+
+thead { background: var(--verde-oscuro); color: var(--blanco); }
+
+th, td {
+  padding: 12px 16px;
+  text-align: left;
+  font-size: 0.92rem;
+}
+
+tbody tr:nth-child(even) { background: var(--gris-claro); }
+tbody tr:hover { background: var(--dorado-suave); }
+
+.resultado-victoria { color: var(--verde-oscuro); font-weight: 700; }
+.resultado-derrota { color: #a33; font-weight: 700; }
+
+/* -------------------- Pestañas de categoría -------------------- */
+.pestanas {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin-bottom: 30px;
+}
+
+.pestanas button {
+  border: 2px solid var(--verde);
+  background: var(--blanco);
+  color: var(--verde-oscuro);
+  padding: 8px 18px;
+  border-radius: 30px;
+  font-weight: 700;
+  cursor: pointer;
+  font-size: 0.85rem;
+  transition: background 0.2s, color 0.2s;
+}
+
+.pestanas button.activa,
+.pestanas button:hover {
+  background: var(--verde);
+  color: var(--blanco);
+}
+
+.panel-categoria { display: none; }
+.panel-categoria.activo { display: block; }
+
+/* -------------------- Patrocinadores -------------------- */
+.rejilla-patrocinadores {
+  display: grid;
+  gap: 20px;
+  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+  align-items: stretch;
+}
+
+.logo-patrocinador {
+  background: var(--blanco);
+  border-radius: var(--radio);
+  box-shadow: var(--sombra);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 110px;
+  color: #999;
+  font-size: 0.85rem;
+  text-align: center;
+  padding: 10px;
+  border: 2px dashed #ddd;
+}
+
+/* ---- Patrocinadores: tarjetas reales con enlace ---- */
+.patro-tier {
+  margin-bottom: 42px;
+}
+
+.patro-tier-header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 16px;
+}
+
+.patro-tier-header::after {
+  content: '';
+  flex: 1;
+  height: 1px;
+  background: linear-gradient(90deg, rgba(63,40,9,0.18), transparent);
+}
+
+.patro-tier-badge {
+  font-size: 0.72rem;
+  font-weight: 800;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  padding: 5px 16px;
+  border-radius: 20px;
+  white-space: nowrap;
+}
+
+.patro-tier-principal .patro-tier-badge { background: var(--dorado); color: var(--marron); }
+.patro-tier-institucional .patro-tier-badge { background: var(--verde-oscuro); color: var(--blanco); }
+.patro-tier-otros .patro-tier-badge { background: var(--marron); color: var(--crema); }
+.patro-tier-proveedor .patro-tier-badge { background: rgba(63,40,9,0.1); color: var(--marron); border: 1px solid rgba(63,40,9,0.2); }
+
+.patro-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  align-items: center;
+  justify-content: center;
+}
+
+a.patro-card, .patro-card {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--blanco);
+  border-radius: 10px;
+  box-shadow: var(--sombra);
+  overflow: hidden;
+  text-decoration: none;
+  transition: transform 0.18s ease, box-shadow 0.18s ease;
+  position: relative;
+  flex-shrink: 0;
+}
+
+a.patro-card:hover {
+  transform: translateY(-4px) scale(1.03);
+  box-shadow: 0 10px 24px rgba(15,122,69,0.22);
+  z-index: 2;
+}
+
+a.patro-card::after {
+  content: '↗';
+  position: absolute;
+  top: 4px;
+  right: 6px;
+  font-size: 10px;
+  color: rgba(15,122,69,0.4);
+  opacity: 0;
+  transition: opacity 0.15s;
+}
+
+a.patro-card:hover::after { opacity: 1; }
+
+.patro-card.sin-enlace { cursor: default; background: var(--gris-claro); }
+.patro-card.sin-enlace:hover { transform: none; box-shadow: var(--sombra); }
+
+.patro-card img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  padding: 8px;
+  display: block;
+}
+
+.patro-card .patro-texto {
+  font-size: 0.68rem;
+  font-weight: 700;
+  color: var(--marron);
+  text-align: center;
+  line-height: 1.25;
+  padding: 6px 8px;
+  width: 100%;
+}
+
+.patro-size-principal { width: 260px; height: 84px; }
+.patro-size-normal { width: 200px; height: 88px; }
+.patro-size-prov { width: 130px; height: 46px; }
+
+.patro-card img.patro-img-cover { object-fit: cover; padding: 0; }
+
+/* Para logos que se ven pequeños con el recorte de sobra habitual, pero
+   que no se pueden recortar (cover) sin perder texto o detalles: se
+   mantiene todo el logo visible (object-fit: contain) y se reduce al
+   mínimo el margen para que ocupe el máximo tamaño posible. */
+.patro-card img.patro-img-max { object-fit: contain; padding: 1px; }
+
+/* Tarjetas con nombre de razón social encima del logo (p. ej. cuando el
+   logo solo muestra la marca comercial y hace falta aclarar la razón
+   social real de la empresa). */
+.patro-doble {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+  padding: 6px 6px 2px;
+}
+
+.patro-doble .patro-texto-superior {
+  font-size: 0.92rem;
+  font-weight: 800;
+  letter-spacing: 0.02em;
+  color: var(--marron);
+  text-align: center;
+  line-height: 1.15;
+  width: 100%;
+  padding: 0 0 3px;
+}
+
+.patro-doble img {
+  flex: 0 1 auto;
+  min-height: 0;
+  width: auto;
+  max-width: 62%;
+  max-height: 40%;
+  object-fit: contain;
+  padding: 0;
+}
+
+@media (max-width: 600px) {
+  .patro-size-principal { width: 220px; height: 68px; }
+  .patro-size-normal { width: 162px; height: 72px; }
+}
+
+/* -------------------- Formulario de contacto -------------------- */
+.formulario {
+  background: var(--blanco);
+  border-radius: var(--radio);
+  box-shadow: var(--sombra);
+  padding: 30px;
+  display: grid;
+  gap: 16px;
+}
+
+.formulario label {
+  font-weight: 700;
+  font-size: 0.88rem;
+  color: var(--marron);
+  display: block;
+  margin-bottom: 6px;
+}
+
+.formulario input,
+.formulario select,
+.formulario textarea {
+  width: 100%;
+  padding: 10px 12px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  font-family: inherit;
+  font-size: 0.95rem;
+  background: var(--blanco);
+}
+
+.formulario button {
+  justify-self: start;
+}
+
+.info-contacto {
+  display: grid;
+  gap: 18px;
+}
+
+.info-contacto .item {
+  background: var(--blanco);
+  border-radius: var(--radio);
+  box-shadow: var(--sombra);
+  padding: 18px 22px;
+  display: flex;
+  gap: 14px;
+  align-items: flex-start;
+}
+
+.info-contacto .icono {
+  font-size: 1.4rem;
+}
+
+.dos-columnas {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 30px;
+  align-items: start;
+}
+
+@media (max-width: 800px) {
+  .dos-columnas { grid-template-columns: 1fr; }
+  .proximo-partido { grid-template-columns: 1fr; }
+  .proximo-partido .vs { margin: 0 auto; }
+}
+
+/* -------------------- Pie de página -------------------- */
+.pie {
+  background: var(--marron);
+  color: var(--crema);
+  padding: 50px 0 20px;
+  margin-top: 60px;
+}
+
+.pie .rejilla-pie {
+  display: grid;
+  gap: 30px;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  margin-bottom: 30px;
+}
+
+.pie h4 {
+  color: var(--dorado);
+  font-size: 1rem;
+  margin-bottom: 14px;
+}
+
+.pie ul { list-style: none; padding: 0; margin: 0; display: grid; gap: 8px; }
+.pie a:hover { color: var(--dorado); text-decoration: underline; }
+
+.pie .marca-pie {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 12px;
+}
+
+.pie .marca-pie img {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+}
+
+.redes-pie { display: flex; gap: 12px; margin-top: 10px; }
+.redes-pie a {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: rgba(255,255,255,0.1);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1rem;
+}
+.redes-pie a:hover { background: var(--dorado); color: var(--marron); }
+
+.linea-legal {
+  border-top: 1px solid rgba(255,255,255,0.15);
+  padding-top: 18px;
+  text-align: center;
+  font-size: 0.8rem;
+  opacity: 0.75;
+}
+
+/* -------------------- Responsive: menú móvil -------------------- */
+@media (max-width: 900px) {
+  .menu-toggle { display: block; }
+
+  .menu {
+    display: none;
+    flex-direction: column;
+    align-items: stretch;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    background: var(--blanco);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.15);
+    padding: 10px;
+  }
+
+  .menu.abierto { display: flex; }
+
+  .menu a { padding: 12px 16px; }
+
+  .nav-principal { position: relative; }
+}
+
+/* -------------------- Galería fotográfica -------------------- */
+.galeria-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: 16px;
+}
+
+.galeria-item {
+  position: relative;
+  border-radius: var(--radio);
+  overflow: hidden;
+  box-shadow: var(--sombra);
+  cursor: zoom-in;
+  aspect-ratio: 4 / 3;
+  background: var(--gris-claro);
+}
+
+.galeria-item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.25s ease;
+}
+
+.galeria-item:hover img { transform: scale(1.06); }
+
+.galeria-item .galeria-pie {
+  position: absolute;
+  left: 0; right: 0; bottom: 0;
+  background: linear-gradient(0deg, rgba(15,20,10,0.75), transparent);
+  color: #fff;
+  font-size: 0.82rem;
+  padding: 20px 12px 8px;
+  pointer-events: none;
+}
+
+.lightbox-overlay {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(15, 10, 5, 0.92);
+  z-index: 100;
+  align-items: center;
+  justify-content: center;
+  padding: 40px 20px;
+  flex-direction: column;
+}
+
+.lightbox-overlay.abierto { display: flex; }
+
+.lightbox-overlay img {
+  max-width: 100%;
+  max-height: 78vh;
+  border-radius: 8px;
+  box-shadow: 0 10px 40px rgba(0,0,0,0.5);
+}
+
+.lightbox-overlay .lightbox-leyenda {
+  color: var(--crema);
+  margin-top: 14px;
+  font-size: 0.95rem;
+  text-align: center;
+  max-width: 700px;
+}
+
+.lightbox-cerrar {
+  position: absolute;
+  top: 18px;
+  right: 26px;
+  color: #fff;
+  font-size: 2.2rem;
+  line-height: 1;
+  cursor: pointer;
+  background: none;
+  border: none;
+  font-weight: 300;
+}
+
+.lightbox-cerrar:hover { color: var(--dorado); }
+
+/* -------------------- Foto de cabecera de crónica -------------------- */
+.imagen-cronica-cabecera {
+  width: 100%;
+  max-height: 420px;
+  object-fit: cover;
+  object-position: center;
+  border-radius: var(--radio);
+  display: block;
+  margin-bottom: 24px;
+}
+
+.enlace-galeria-cronica {
+  display: inline-block;
+  margin-top: -8px;
+  margin-bottom: 24px;
+  font-size: 0.9rem;
+}
