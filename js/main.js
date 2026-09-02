@@ -182,4 +182,49 @@ document.addEventListener('DOMContentLoaded', function () {
       if (e.key === 'Escape') cerrarLightbox();
     });
   }
+
+  // --- Compartir noticia (WhatsApp, Facebook, X y copiar enlace) ---
+  var compartirContenedor = document.querySelector('.compartir-noticia');
+  if (compartirContenedor) {
+    var urlActual = encodeURIComponent(window.location.href);
+    var tituloActual = encodeURIComponent(document.title.replace(/\s*·\s*Club Baloncesto Tomelloso\s*$/, ''));
+
+    var enlaceWhatsapp = compartirContenedor.querySelector('.compartir-whatsapp');
+    if (enlaceWhatsapp) enlaceWhatsapp.href = 'https://wa.me/?text=' + tituloActual + '%20' + urlActual;
+
+    var enlaceFacebook = compartirContenedor.querySelector('.compartir-facebook');
+    if (enlaceFacebook) enlaceFacebook.href = 'https://www.facebook.com/sharer/sharer.php?u=' + urlActual;
+
+    var enlaceX = compartirContenedor.querySelector('.compartir-x');
+    if (enlaceX) enlaceX.href = 'https://twitter.com/intent/tweet?url=' + urlActual + '&text=' + tituloActual;
+
+    var botonCopiar = compartirContenedor.querySelector('.compartir-copiar');
+    if (botonCopiar) {
+      botonCopiar.addEventListener('click', function () {
+        var restaurar = function () {
+          botonCopiar.classList.remove('copiado');
+          botonCopiar.setAttribute('title', 'Copiar enlace');
+          botonCopiar.setAttribute('aria-label', 'Copiar enlace');
+        };
+        var marcarCopiado = function () {
+          botonCopiar.classList.add('copiado');
+          botonCopiar.setAttribute('title', '¡Enlace copiado!');
+          botonCopiar.setAttribute('aria-label', 'Enlace copiado');
+          setTimeout(restaurar, 2000);
+        };
+        if (navigator.clipboard && navigator.clipboard.writeText) {
+          navigator.clipboard.writeText(window.location.href).then(marcarCopiado).catch(function () {});
+        } else {
+          var campo = document.createElement('textarea');
+          campo.value = window.location.href;
+          campo.style.position = 'fixed';
+          campo.style.opacity = '0';
+          document.body.appendChild(campo);
+          campo.select();
+          try { document.execCommand('copy'); marcarCopiado(); } catch (err) {}
+          document.body.removeChild(campo);
+        }
+      });
+    }
+  }
 });

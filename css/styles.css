@@ -953,3 +953,43 @@ a.patro-card:hover::after { opacity: 1; }
   margin-bottom: 24px;
   font-size: 0.9rem;
 }
+
+/* -------------------- Compartir noticia -------------------- */
+.compartir-noticia {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  flex-wrap: wrap;
+  margin-top: 30px;
+  padding-top: 24px;
+  border-top: 1px solid rgba(63, 40, 9, 0.15);
+}
+
+.compartir-etiqueta {
+  font-weight: 700;
+  color: var(--marron);
+  font-family: var(--fuente-titulos);
+  letter-spacing: 0.3px;
+}
+
+.compartir-botones { display: flex; gap: 10px; }
+
+.compartir-boton {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: var(--verde-oscuro);
+  color: var(--blanco);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: none;
+  cursor: pointer;
+  transition: transform 0.15s, background 0.15s;
+}
+
+.compartir-boton svg { width: 18px; height: 18px; }
+
+.compartir-boton:hover { background: var(--dorado); color: var(--marron); transform: translateY(-2px); }
+
+.compartir-boton.copiado { background: var(--dorado); color: var(--marron); }
