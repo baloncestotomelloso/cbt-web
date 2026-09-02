@@ -198,32 +198,52 @@ document.addEventListener('DOMContentLoaded', function () {
     var enlaceX = compartirContenedor.querySelector('.compartir-x');
     if (enlaceX) enlaceX.href = 'https://twitter.com/intent/tweet?url=' + urlActual + '&text=' + tituloActual;
 
+    // Copia el enlace al portapapeles y muestra una confirmación temporal
+    // en el propio botón (usado tanto por "Copiar enlace" como por Instagram,
+    // que no admite compartir un enlace externo directamente desde la web).
+    var copiarEnlaceConAviso = function (boton, tituloCopiado, ariaCopiado, tituloOriginal, ariaOriginal) {
+      var restaurar = function () {
+        boton.classList.remove('copiado');
+        boton.setAttribute('title', tituloOriginal);
+        boton.setAttribute('aria-label', ariaOriginal);
+      };
+      var marcarCopiado = function () {
+        boton.classList.add('copiado');
+        boton.setAttribute('title', tituloCopiado);
+        boton.setAttribute('aria-label', ariaCopiado);
+        setTimeout(restaurar, 2500);
+      };
+      if (navigator.clipboard && navigator.clipboard.writeText) {
+        navigator.clipboard.writeText(window.location.href).then(marcarCopiado).catch(function () {});
+      } else {
+        var campo = document.createElement('textarea');
+        campo.value = window.location.href;
+        campo.style.position = 'fixed';
+        campo.style.opacity = '0';
+        document.body.appendChild(campo);
+        campo.select();
+        try { document.execCommand('copy'); marcarCopiado(); } catch (err) {}
+        document.body.removeChild(campo);
+      }
+    };
+
     var botonCopiar = compartirContenedor.querySelector('.compartir-copiar');
     if (botonCopiar) {
       botonCopiar.addEventListener('click', function () {
-        var restaurar = function () {
-          botonCopiar.classList.remove('copiado');
-          botonCopiar.setAttribute('title', 'Copiar enlace');
-          botonCopiar.setAttribute('aria-label', 'Copiar enlace');
-        };
-        var marcarCopiado = function () {
-          botonCopiar.classList.add('copiado');
-          botonCopiar.setAttribute('title', '¡Enlace copiado!');
-          botonCopiar.setAttribute('aria-label', 'Enlace copiado');
-          setTimeout(restaurar, 2000);
-        };
-        if (navigator.clipboard && navigator.clipboard.writeText) {
-          navigator.clipboard.writeText(window.location.href).then(marcarCopiado).catch(function () {});
-        } else {
-          var campo = document.createElement('textarea');
-          campo.value = window.location.href;
-          campo.style.position = 'fixed';
-          campo.style.opacity = '0';
-          document.body.appendChild(campo);
-          campo.select();
-          try { document.execCommand('copy'); marcarCopiado(); } catch (err) {}
-          document.body.removeChild(campo);
-        }
+        copiarEnlaceConAviso(botonCopiar, '¡Enlace copiado!', 'Enlace copiado', 'Copiar enlace', 'Copiar enlace');
+      });
+    }
+
+    var botonInstagram = compartirContenedor.querySelector('.compartir-instagram');
+    if (botonInstagram) {
+      botonInstagram.addEventListener('click', function () {
+        copiarEnlaceConAviso(
+          botonInstagram,
+          'Enlace copiado: pégalo en tu historia o publicación de Instagram',
+          'Enlace copiado para Instagram',
+          'Copiar enlace para Instagram',
+          'Copiar enlace para Instagram'
+        );
       });
     }
   }
