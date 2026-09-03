@@ -229,6 +229,34 @@ h1, h2, h3, h4 {
   color: var(--dorado);
 }
 
+/* -------------------- Enlaces desactivados (próximamente) -------------------- */
+.menu a.enlace-desactivado,
+.pie a.enlace-desactivado {
+  opacity: 0.55;
+  cursor: not-allowed;
+}
+
+.menu a.enlace-desactivado:hover,
+.pie a.enlace-desactivado:hover {
+  background: none;
+  color: inherit;
+  text-decoration: none;
+}
+
+.etiqueta-proximamente {
+  display: inline-block;
+  margin-left: 7px;
+  padding: 2px 8px;
+  font-size: 0.6rem;
+  font-weight: 700;
+  letter-spacing: 0.4px;
+  text-transform: uppercase;
+  border-radius: 999px;
+  background: var(--dorado);
+  color: var(--marron);
+  vertical-align: middle;
+}
+
 /* -------------------- Hero -------------------- */
 .hero {
   background: linear-gradient(135deg, var(--verde-oscuro), var(--verde) 60%, var(--dorado) 140%);
