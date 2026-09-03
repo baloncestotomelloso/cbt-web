@@ -411,6 +411,7 @@ h1, h2, h3, h4 {
 
 .etiqueta-equipo.amarillo { background: var(--dorado); color: var(--marron); }
 .etiqueta-equipo.verde { background: var(--verde-oscuro); color: var(--blanco); }
+.etiqueta-equipo.u19 { background: var(--marron); color: var(--dorado); }
 .etiqueta-equipo.derbi { background: var(--marron); color: var(--crema); }
 .etiqueta-equipo.senior { background: var(--verde); color: var(--blanco); }
 
