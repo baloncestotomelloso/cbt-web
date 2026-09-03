@@ -534,6 +534,7 @@ tbody tr:hover { background: var(--dorado-suave); }
 
 .resultado-victoria { color: var(--verde-oscuro); font-weight: 700; }
 .resultado-derrota { color: #a33; font-weight: 700; }
+.resultado-pendiente { color: var(--marron); opacity: 0.6; font-weight: 600; }
 
 /* -------------------- Pestañas de categoría -------------------- */
 .pestanas {
