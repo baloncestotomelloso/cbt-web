@@ -6,7 +6,7 @@
 <title>Noticias · Club Baloncesto Tomelloso</title>
 <meta name="description" content="Crónicas y previas del Club Baloncesto Tomelloso.">
 <link rel="canonical" href="https://clubbaloncestotomelloso.com/noticias.html"> <meta property="og:type" content="website"> <meta property="og:site_name" content="Club Baloncesto Tomelloso"> <meta property="og:title" content="Noticias · Club Baloncesto Tomelloso"> <meta property="og:description" content="Crónicas y previas del Club Baloncesto Tomelloso."> <meta property="og:image" content="https://clubbaloncestotomelloso.com/assets/escudo.jpg"> <meta property="og:url" content="https://clubbaloncestotomelloso.com/noticias.html"> <meta name="twitter:card" content="summary"> <link rel="icon" href="assets/escudo.jpg">
-<link rel="stylesheet" href="css/styles.css">
+<link rel="stylesheet" href="css/styles.css"> <style>#rejilla-noticias .tarjeta:nth-child(n+13){display:none;}#rejilla-noticias.mostrar-todas .tarjeta{display:flex;}</style>
 </head>
 <body>
 
@@ -64,7 +64,7 @@
       <h2>Últimas publicaciones</h2>
     </div>
 
-    <div class="rejilla">
+    <div class="rejilla" id="rejilla-noticias">
 
       <div class="tarjeta">
         <img src="assets/cronicas/inicio-pretemporada-u19-header.jpg" alt="Jugadores del U19 del Val Brokers CB Tomelloso en el primer entrenamiento de la pretemporada" class="imagen-real" loading="lazy">
@@ -603,6 +603,10 @@
         </div>
       </div>
     </div>
+
+    <div style="text-align:center; margin-top:30px;">
+      <button id="btn-cargar-mas-noticias" class="boton boton-primario" style="background:var(--verde); color:#fff; border:none; cursor:pointer;" onclick="cargarMasNoticias()">Cargar más noticias</button>
+    </div>
   </div>
 </section>
 
@@ -663,7 +667,7 @@
 </footer>
 
 <script src="js/main.js"></script>
-<script>document.getElementById('anio').textContent = new Date().getFullYear();</script>
+<script>document.getElementById('anio').textContent = new Date().getFullYear();</script> <script>function cargarMasNoticias(){document.getElementById('rejilla-noticias').classList.add('mostrar-todas');document.getElementById('btn-cargar-mas-noticias').style.display='none';}</script>
 </body>
 </html>
 
