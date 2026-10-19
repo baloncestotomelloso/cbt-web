@@ -278,7 +278,7 @@
   </url>
   <url>
     <loc>https://clubbaloncestotomelloso.com/equipos.html</loc>
-    <lastmod>2026-10-08</lastmod>
+    <lastmod>2026-10-19</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -290,13 +290,13 @@
   </url>
   <url>
     <loc>https://clubbaloncestotomelloso.com/</loc>
-    <lastmod>2026-10-18</lastmod>
+    <lastmod>2026-10-19</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>
   <url>
     <loc>https://clubbaloncestotomelloso.com/noticias.html</loc>
-    <lastmod>2026-10-18</lastmod>
+    <lastmod>2026-10-19</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -321,6 +321,12 @@
   <url>
     <loc>https://clubbaloncestotomelloso.com/presentacion-alonso-cobo.html</loc>
     <lastmod>2026-09-22</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://clubbaloncestotomelloso.com/presentacion-carlos-castano.html</loc>
+    <lastmod>2026-10-19</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
