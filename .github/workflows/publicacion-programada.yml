@@ -1,0 +1,61 @@
+# Publica automáticamente el contenido preparado en ramas "programado/AAAA-MM-DD-HHMM"
+# cuando llega esa fecha y hora (hora de Madrid): lo une a main, pide a GitHub Pages
+# que reconstruya la web y borra la rama.
+name: Publicación programada
+
+on:
+  schedule:
+    - cron: "*/15 * * * *"
+  workflow_dispatch:
+    inputs:
+      prueba:
+        description: "Solo mostrar qué se publicaría, sin publicar"
+        type: boolean
+        default: true
+
+permissions:
+  contents: write
+  pages: write
+
+concurrency:
+  group: publicacion-programada
+  cancel-in-progress: false
+
+jobs:
+  publicar:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+          fetch-depth: 0
+
+      - name: Publicar ramas programadas que ya han llegado a su hora
+        env:
+          GH_TOKEN: ${{ github.token }}
+          PRUEBA: ${{ github.event_name == 'workflow_dispatch' && inputs.prueba }}
+        run: |
+          set -euo pipefail
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          ahora=$(TZ=Europe/Madrid date +%Y-%m-%d-%H%M)
+          echo "Hora de Madrid: $ahora"
+          publicado=0
+          for rama in $(git for-each-ref --format='%(refname:lstrip=3)' 'refs/remotes/origin/programado/' | sort); do
+            cuando=${rama#programado/}
+            if [[ ! "$cuando" =~ ^[0-9]{4}-[0-9]{2}-[0-9]{2}-[0-9]{4}$ ]]; then
+              echo "::warning::Nombre de rama no válido: $rama"; continue
+            fi
+            if [[ "$cuando" > "$ahora" ]]; then
+              echo "Pendiente: $rama"; continue
+            fi
+            echo "Toca publicar: $rama"
+            if [[ "$PRUEBA" == "true" ]]; then continue; fi
+            git merge --no-edit "origin/$rama" -m "Publicación programada ($cuando)"
+            git push origin main
+            git push origin --delete "$rama"
+            publicado=1
+          done
+          if [[ $publicado == 1 ]]; then
+            gh api -X POST "repos/${GITHUB_REPOSITORY}/pages/builds" || echo "::warning::No se pudo pedir la reconstrucción de Pages"
+          fi
