@@ -395,6 +395,7 @@ h1, h2, h3, h4 {
 .etiqueta.previa { background: var(--marron); color: var(--crema); }
 .etiqueta.fichaje { background: var(--dorado); color: var(--marron); }
 .etiqueta.renovacion { background: #2b6cb0; color: var(--blanco); }
+.etiqueta.patrocinador { background: var(--crema); color: var(--verde-oscuro); box-shadow: inset 0 0 0 1.5px var(--verde); }
 
 .etiqueta-equipo {
   display: inline-block;
