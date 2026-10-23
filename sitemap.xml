@@ -290,13 +290,13 @@
   </url>
   <url>
     <loc>https://clubbaloncestotomelloso.com/</loc>
-    <lastmod>2026-10-22</lastmod>
+    <lastmod>2026-10-23</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>
   <url>
     <loc>https://clubbaloncestotomelloso.com/noticias.html</loc>
-    <lastmod>2026-10-22</lastmod>
+    <lastmod>2026-10-23</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -409,8 +409,20 @@
     <priority>0.6</priority>
   </url>
   <url>
+    <loc>https://clubbaloncestotomelloso.com/previa-u19-j3-valdepenas-2026.html</loc>
+    <lastmod>2026-10-23</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
     <loc>https://clubbaloncestotomelloso.com/previa-u19-j2-manzanares-2026.html</loc>
     <lastmod>2026-10-15</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://clubbaloncestotomelloso.com/previa-senior-j4-la-roda-2026.html</loc>
+    <lastmod>2026-10-23</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
