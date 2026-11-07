@@ -14,7 +14,7 @@
   </url>
   <url>
     <loc>https://clubbaloncestotomelloso.com/calendario.html</loc>
-    <lastmod>2026-11-06</lastmod>
+    <lastmod>2026-11-07</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -129,6 +129,12 @@
   <url>
     <loc>https://clubbaloncestotomelloso.com/cronica-senior-j3-cervantes-2026.html</loc>
     <lastmod>2026-10-18</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://clubbaloncestotomelloso.com/cronica-senior-j5-infantes-2026.html</loc>
+    <lastmod>2026-11-07</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
@@ -308,13 +314,13 @@
   </url>
   <url>
     <loc>https://clubbaloncestotomelloso.com/</loc>
-    <lastmod>2026-11-06</lastmod>
+    <lastmod>2026-11-07</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>
   <url>
     <loc>https://clubbaloncestotomelloso.com/noticias.html</loc>
-    <lastmod>2026-11-06</lastmod>
+    <lastmod>2026-11-07</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
